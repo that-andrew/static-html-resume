@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= basics.name %></title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="./dist/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-900 print:bg-white flex justify-center py-10 print:py-0">
+  <main class="w-full max-w-[210mm] min-h-[297mm] bg-white p-12 shadow-lg print:shadow-none print:p-0 print:m-0 box-border">
+    <article class="prose prose-slate prose-sm sm:prose-base max-w-none">
+      
+      <header class="border-b-2 border-gray-200 pb-4 mb-6 break-inside-avoid">
+        <h1 class="mb-1 text-4xl font-bold tracking-tight text-gray-900"><%= basics.name %></h1>
+        <p class="mt-0 text-gray-600 font-medium"><%= basics.title %></p>
+        <div class="flex flex-wrap gap-4 text-sm text-gray-500 mt-2 not-prose items-center">
+          <span class="flex items-center gap-1">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            <%= basics.email %>
+          </span>
+          
+          <span class="flex items-center gap-1">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+            <%= basics.phone %>
+          </span>
+          
+          <span class="flex items-center gap-1">
+            <i data-lucide="map-pin" class="w-4 h-4"></i>
+            <%= basics.location %>
+          </span>
+          
+          <a href="<%= basics.website.url %>" class="flex items-center gap-1 text-blue-600 underline">
+            <i data-lucide="globe" class="w-4 h-4"></i>
+            <%= basics.website.label %>
+          </a>
+        </div>
+
+      </header>
+
+      <section class="mb-6 break-inside-avoid">
+        <h2 class="mt-0 mb-3 border-b border-gray-100 pb-1">Professional Summary</h2>
+        <p><%= basics.summary %></p>
+      </section>
+
+      <section class="mb-6">
+        <h2 class="mb-4 border-b border-gray-100 pb-1">Professional Experience</h2>
+        
+        <% experience.forEach(function(job) { %>
+          <div class="mb-6 break-inside-avoid">
+            <div class="flex justify-between items-baseline mb-2 not-prose">
+              <h3 class="text-lg font-semibold text-gray-900"><%= job.company %> — <%= job.role %></h3>
+              <span class="text-sm font-medium text-gray-500"><%= job.date %></span>
+            </div>
+            <ul class="mt-2">
+              <% job.highlights.forEach(function(highlight) { %>
+                <li><%= highlight %></li>
+              <% }) %>
+            </ul>
+          </div>
+        <% }) %>
+      </section>
+
+    </article>
+  </main>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

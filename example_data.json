@@ -1,0 +1,22 @@
+{
+  "basics": {
+    "name": "Jane Doe",
+    "title": "Senior Software Engineer",
+    "email": "jane.doe@example.com",
+    "phone": "(555) 123-4567",
+    "location": "City, State",
+    "website": "https://linkedin.com/in/janedoe",
+    "summary": "Results-oriented Senior Software Engineer with over 8 years of experience designing, developing, and deploying scalable web applications..."
+  },
+  "experience": [
+    {
+      "company": "Tech Solutions Inc.",
+      "role": "Lead Developer",
+      "date": "Jan 2021 – Present",
+      "highlights": [
+        "Architected and migrated legacy monolith to microservices using Node.js and Docker, reducing deployment time by 40%.",
+        "Mentored a team of 5 junior engineers."
+      ]
+    }
+  ]
+}

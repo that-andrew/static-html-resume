@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-primary: #1e293b; /* slate-800 */
+}
+
+/* Print-specific CSS rules */
+@media print {
+  @page {
+    /* Set standard print margins (A4/Letter) */
+    margin: 1.5cm;
+    size: auto;
+  }
+
+  /* Ensure background colors print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Force links to not display their URLs in print */
+  a[href]:after {
+    content: none !important;
+  }
+}
