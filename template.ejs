@@ -7,30 +7,62 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <link href="./dist/output.css" rel="stylesheet">
 </head>
-<body class="bg-gray-50 text-gray-900 print:bg-white flex justify-center py-10 print:py-0">
-  <main class="w-full max-w-[210mm] min-h-[297mm] bg-white p-12 shadow-lg print:shadow-none print:p-0 print:m-0 box-border">
-    <article class="prose prose-slate prose-sm sm:prose-base max-w-none">
+<body class=" print:bg-white print:text-gray-950 bg-background text-foreground flex justify-center py-10 print:py-0">
+  <main class="w-full max-w-[210mm] min-h-[297mm] print:bg-white p-12 shadow-lg print:shadow-none print:p-0 print:m-0 box-border">
+    
+
+    <div class="flex items-center justify-end gap-3">
+
+      <button
+        id="themeToggle"
+        type="button"
+        class="group relative inline-flex items-center gap-3 px-3 py-2 shadow-sm backdrop-blur transition print:hidden "
+        aria-label="Toggle theme"
+
+      >
+        <span class="text-xs font-semibold" id="themeModeLabel">
+          <span class="theme-auto:hidden">
+            <span class="not-dark:hidden"></span>
+            <span class="dark:hidden"></span>
+          </span>
+          <span class="not-theme-auto:hidden">Auto</span>
+        </span>
+
+        <span class="grid h-6 w-6 place-items-center" id="themeIcon">
+          <span class="theme-auto:hidden">
+            <span class="not-dark:hidden"><i data-lucide="sun" class="w-6 h-6"></i></span>
+            <span class="dark:hidden"><i data-lucide="moon" class="w-6 h-6"></i></span>
+          </span>
+          <span class="not-theme-auto:hidden"><i data-lucide="sun-moon" class="w-6 h-6"></i></span>
+        </span>
+
+      </button>
+    </div>
+
+
+    <article class="prose prose-sm sm:prose-base max-w-none dark:prose-invert prose-neutral">
       
-      <header class="border-b-2 border-gray-200 pb-4 mb-6 break-inside-avoid">
-        <h1 class="mb-1 text-4xl font-bold tracking-tight text-gray-900"><%= basics.name %></h1>
-        <p class="mt-0 text-gray-600 font-medium"><%= basics.title %></p>
-        <div class="flex flex-wrap gap-4 text-sm text-gray-500 mt-2 not-prose items-center">
-          <span class="flex items-center gap-1">
+      <header class="border-b-2 border-border pb-4 mb-6 break-inside-avoid">
+
+        <h1 class="mb-1 text-4xl font-bold tracking-tight "><%= basics.name %></h1>
+        <p class="mt-0 text-foreground/90 font-medium"><%= basics.title %></p>
+        <div class="flex flex-wrap gap-4 text-sm text-foreground/80 mt-2 not-prose items-center justify-between">
+          <span class="flex flex-nowrap items-center justify-between gap-1">
             <i data-lucide="mail" class="w-4 h-4"></i>
             <%= basics.email %>
           </span>
           
-          <span class="flex items-center gap-1">
+          <span class="flex flex-nowrap items-center justify-between gap-1">
             <i data-lucide="phone" class="w-4 h-4"></i>
             <%= basics.phone %>
           </span>
           
-          <span class="flex items-center gap-1">
+          <span class="flex flex-nowrap items-center justify-between gap-1">
             <i data-lucide="map-pin" class="w-4 h-4"></i>
             <%= basics.location %>
           </span>
           
-          <a href="<%= basics.website.url %>" class="flex items-center gap-1 text-blue-600 underline">
+          <a href="<%= basics.website.url %>" class="flex flex-nowrap items-center justify-between gap-1 text-blue-600 print:text-gray-950 underline">
             <i data-lucide="globe" class="w-4 h-4"></i>
             <%= basics.website.label %>
           </a>
@@ -39,18 +71,18 @@
       </header>
 
       <section class="mb-6 break-inside-avoid">
-        <h2 class="mt-0 mb-3 border-b border-gray-100 pb-1">Professional Summary</h2>
+        <h2 class="mt-0 mb-3 border-b border-foreground pb-1">Professional Summary</h2>
         <p><%= basics.summary %></p>
       </section>
 
       <section class="mb-6">
-        <h2 class="mb-4 border-b border-gray-100 pb-1">Professional Experience</h2>
+        <h2 class="mb-4 border-b border-foreground pb-1">Professional Experience</h2>
         
         <% experience.forEach(function(job) { %>
           <div class="mb-6 break-inside-avoid">
             <div class="flex justify-between items-baseline mb-2 not-prose">
-              <h3 class="text-lg font-semibold text-gray-900"><%= job.company %> — <%= job.role %></h3>
-              <span class="text-sm font-medium text-gray-500"><%= job.date %></span>
+              <h3 class="text-lg font-semibold text-foreground"><%= job.company %> — <%= job.role %></h3>
+              <span class="text-sm font-medium text-foreground/80"><%= job.date %></span>
             </div>
             <ul class="mt-2">
               <% job.highlights.forEach(function(highlight) { %>
@@ -66,5 +98,6 @@
   <script>
     lucide.createIcons();
   </script>
+  <script src="./src/app.js"></script>
 </body>
 </html>
