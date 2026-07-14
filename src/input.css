@@ -98,4 +98,6 @@
 @theme inline {
   --color-foreground: var(--foreground);
   --color-background: var(--background);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
 }

@@ -7,16 +7,15 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <link href="./dist/output.css" rel="stylesheet">
 </head>
-<body class=" print:bg-white print:text-gray-950 bg-background text-foreground flex justify-center py-10 print:py-0">
-  <main class="w-full max-w-[210mm] min-h-[297mm] print:bg-white p-12 shadow-lg print:shadow-none print:p-0 print:m-0 box-border">
+<body class=" print:bg-white print:text-gray-950 bg-background text-foreground flex justify-center py-5 print:py-0">
+  <main class="w-full max-w-[210mm] min-h-[297mm] p-5 shadow-lg print:shadow-none print:p-0 print:m-0 box-border relative">
     
 
-    <div class="flex items-center justify-end gap-3">
-
+    <div class="absolute top-0 right-0 flex items-center justify-end gap-3 print:hidden ">
       <button
         id="themeToggle"
         type="button"
-        class="group relative inline-flex items-center gap-3 px-3 py-2 shadow-sm backdrop-blur transition print:hidden "
+        class="group relative inline-flex items-center gap-3 px-3 py-2 shadow-sm backdrop-blur transition "
         aria-label="Toggle theme"
 
       >
@@ -42,11 +41,11 @@
 
     <article class="prose prose-sm sm:prose-base max-w-none dark:prose-invert prose-neutral">
       
-      <header class="border-b-2 border-border pb-4 mb-6 break-inside-avoid">
+      <header class="pb-2 mb-1 break-inside-avoid">
 
-        <h1 class="mb-1 text-4xl font-bold tracking-tight "><%= basics.name %></h1>
-        <p class="mt-0 text-foreground/90 font-medium"><%= basics.title %></p>
-        <div class="flex flex-wrap gap-4 text-sm text-foreground/80 mt-2 not-prose items-center justify-between">
+        <h1 class="mb-0 pb-0 text-4xl font-bold tracking-tight not-prose"><%= basics.name %></h1>
+        <div class="text-2xl mb-4 text-foreground/90 font-medium prose"><%= basics.title %></div>
+        <div class="border-b border-t border-foreground/20 flex flex-wrap gap-4 text-sm bg-accent print:bg-white text-accent-foreground/80 mt-2 p-2 not-prose items-center justify-between">
           <span class="flex flex-nowrap items-center justify-between gap-1">
             <i data-lucide="mail" class="w-4 h-4"></i>
             <%= basics.email %>
@@ -62,36 +61,71 @@
             <%= basics.location %>
           </span>
           
-          <a href="<%= basics.website.url %>" class="flex flex-nowrap items-center justify-between gap-1 text-blue-600 print:text-gray-950 underline">
+          <a href="<%= basics.website.url %>" class="flex flex-nowrap items-center justify-between gap-1 text-blue-600 dark:text-blue-400 print:text-gray-950 underline">
             <i data-lucide="globe" class="w-4 h-4"></i>
             <%= basics.website.label %>
           </a>
         </div>
 
       </header>
+            <section class="mb-2 break-inside-avoid">
+        <div class="flex flex-wrap justify-center gap-x-1 gap-y-1 w-full">
+          <% tags.forEach(function(tag) { %>
+            <div class="rounded-full bg-accent text-accent-foreground print:bg-white print:text-gray-600 print:border-gray-600 max-w-fit px-2 whitespace-nowrap border border-accent-foreground/20"><%= tag %></div>
+            <% }) %>
+        </div>
+      </section>
 
-      <section class="mb-6 break-inside-avoid">
-        <h2 class="mt-0 mb-3 border-b border-foreground pb-1">Professional Summary</h2>
+      <section class="mb-2 break-inside-avoid">
+        <h2 class="mb-4 mt-4 border-b border-foreground/60 pb-1 not-prose text-2xl font-bold">Summary</h2>
         <p><%= basics.summary %></p>
       </section>
 
-      <section class="mb-6">
-        <h2 class="mb-4 border-b border-foreground pb-1">Professional Experience</h2>
-        
-        <% experience.forEach(function(job) { %>
-          <div class="mb-6 break-inside-avoid">
-            <div class="flex justify-between items-baseline mb-2 not-prose">
-              <h3 class="text-lg font-semibold text-foreground"><%= job.company %> — <%= job.role %></h3>
-              <span class="text-sm font-medium text-foreground/80"><%= job.date %></span>
+
+
+      <% sections.forEach(function(section,index) { %>
+        <section class="mb-6 break-before-page">
+          <h2 class="mb-4 mt-4 border-b border-foreground/60 pb-1 not-prose text-2xl font-bold"><%= section.title %></h2>
+          
+          <% section.content.forEach(function(item) { %>
+
+            <div class="mb-6 break-inside-avoid">
+              <div class="flex justify-between items-baseline not-prose flex-nowrap whitespace-nowrap">
+                <h3 class="text-lg font-semibold text-foreground">
+                  <span><%= item.name %> — </span>
+                  <span class="whitespace-nowrap"><%= item.title %></span>
+                </h3>
+                <span class="not-prose text-sm font-medium text-foreground/80 whitespace-nowrap"><%= item.date %></span>
+              </div>
+              <div class="flex justify-start items-baseline mb-2 not-prose">
+                <div class="whitespace-nowrap text-lg text-foreground/80 font-"><em><%= item.subTitle %></em></div>
+              </div>
+              
+              <% if (item.points && item.points.length > 0) { %>
+              <ul class="mt-2">
+                <% item.points.forEach(function(point) { %>
+                  <li><%= point %></li>
+                <% }) %>
+              </ul>
+              <% } %>
             </div>
-            <ul class="mt-2">
-              <% job.highlights.forEach(function(highlight) { %>
-                <li><%= highlight %></li>
-              <% }) %>
-            </ul>
-          </div>
-        <% }) %>
-      </section>
+
+            <% if (item.content && item.content.length > 0) { %>
+                <% item.content.forEach(function(subItem) { %>
+                  <div class="mb-1 break-inside-avoid">
+                    <div class="flex justify-between items-baseline mb-1 not-prose">
+                      <h4 class="text-lg font-semibold text-foreground/90 whitespace-nowrap"><%= subItem.title %></h4>
+                    </div>
+                    <p class=""><%= subItem.content %></p>
+                  </div>
+                <% }) %>
+            <% } %>
+
+
+          <% }) %>
+          
+        </section>
+      <% }) %>
 
     </article>
   </main>
