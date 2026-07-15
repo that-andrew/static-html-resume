@@ -38,6 +38,15 @@
       </button>
     </div>
 
+    <article class="mb-6 prose prose-sm sm:prose-base max-w-none dark:prose-invert prose-neutral break-after-page">
+      <header class="pb-2 mb-1 break-inside-avoid">
+        <h1 class="mb-0 pb-0 text-4xl font-bold tracking-tight not-prose">Cover Letter</h1>
+      </header>
+      <% cover.forEach(function(paragraph) { %>
+        <p class="break-inside-avoid"><%= paragraph %></p>
+      <% }) %>
+    </article>
+
 
     <article class="prose prose-sm sm:prose-base max-w-none dark:prose-invert prose-neutral">
       
@@ -68,6 +77,8 @@
         </div>
 
       </header>
+
+
             <section class="mb-2 break-inside-avoid">
         <div class="flex flex-wrap justify-center gap-x-1 gap-y-1 w-full">
           <% tags.forEach(function(tag) { %>
@@ -81,8 +92,6 @@
         <p><%= basics.summary %></p>
       </section>
 
-
-
       <% sections.forEach(function(section,index) { %>
         <section class="mb-6 break-before-page">
           <h2 class="mb-4 mt-4 border-b border-foreground/60 pb-1 not-prose text-2xl font-bold"><%= section.title %></h2>
@@ -92,8 +101,10 @@
             <div class="mb-6 break-inside-avoid">
               <div class="flex justify-between items-baseline not-prose flex-nowrap whitespace-nowrap">
                 <h3 class="text-lg font-semibold text-foreground">
-                  <span><%= item.name %> — </span>
-                  <span class="whitespace-nowrap"><%= item.title %></span>
+                  <span><%= item.name %></span>
+                  <% if (item.title && item.title.length > 0) { %>
+                  <span class="whitespace-nowrap"> — <%= item.title %></span>
+                   <% } %>
                 </h3>
                 <span class="not-prose text-sm font-medium text-foreground/80 whitespace-nowrap"><%= item.date %></span>
               </div>
@@ -115,6 +126,10 @@
                   <div class="mb-1 break-inside-avoid">
                     <div class="flex justify-between items-baseline mb-1 not-prose">
                       <h4 class="text-lg font-semibold text-foreground/90 whitespace-nowrap"><%= subItem.title %></h4>
+                      <a href="<%= subItem.website.url %>" class="flex flex-nowrap items-center justify-between gap-1 text-blue-600 dark:text-blue-400 print:text-gray-950 underline">
+                        <i data-lucide="git-fork" class="w-4 h-4"></i>
+                        <%= subItem.website.label %>
+                      </a>
                     </div>
                     <p class=""><%= subItem.content %></p>
                   </div>
