@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "command": "npm run build:html && npm run dev:css",
+      "command": "npm run build && npm run dev:css",
       "name": "Run build & watch",
       "request": "launch",
       "type": "node-terminal"
@@ -14,7 +14,7 @@
       "type": "editor-browser",
       "request": "attach",
       "name": "attach browser against localhost",
-      "url": "http://127.0.0.1:3000/index.html",
+      "url": "http://127.0.0.1:3000/resume.html",
       "webRoot": "${workspaceFolder}"
     }
   ]

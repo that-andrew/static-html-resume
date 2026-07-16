@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= basics.name %></title>
+  <title><%= page.title %></title>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link href="./dist/output.css" rel="stylesheet">
 </head>
@@ -38,112 +38,111 @@
       </button>
     </div>
 
-    <article class=" mb-6 prose prose-sm sm:prose-base max-w-none dark:prose-invert prose-neutral break-after-page">
-      <header class="pb-2 mb-1 break-inside-avoid">
-        <h1 class="mb-0 pb-0 text-4xl font-bold tracking-tight not-prose"><%= basics.name %></h1>
-        <div class="text-2xl mb-4 text-foreground/90 font-medium prose">Cover Letter</div>
+    <% if (page.header) { %>
+      <header class="pb-2 mb-1 break-inside-avoid prose prose-sm sm:prose-base max-w-none dark:prose-invert prose-neutral">
+        <% if (page.header.title) { %>
+          <h1 class="mb-0 pb-0 text-4xl font-bold tracking-tight not-prose"><%= page.header.title %></h1>
+        <% } %>
+        <% if (page.header.subTitle) { %>
+          <div class="text-2xl mb-4 text-foreground/90 font-medium prose"><%= page.header.subTitle %></div>
+        <% } %>
+        <% if (page.header.contact) { %>
+          <div class="border-b border-t border-foreground/20 flex flex-wrap gap-4 text-sm bg-accent print:bg-white text-accent-foreground/80 mt-2 p-2 not-prose items-center justify-between">
+            <% if (page.header.contact.email) { %>
+              <span class="flex flex-nowrap items-center justify-between gap-1">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+                <%= page.header.contact.email %>
+              </span>
+            <% } %>
+            <% if (page.header.contact.phone) { %>
+            <span class="flex flex-nowrap items-center justify-between gap-1">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              <%= page.header.contact.phone %>
+            </span>
+            <% } %>
+            <% if (page.header.contact.location) { %>
+            <span class="flex flex-nowrap items-center justify-between gap-1">
+              <i data-lucide="map-pin" class="w-4 h-4"></i>
+              <%= page.header.contact.location %>
+            </span>
+            <% } %>
+            <% if (page.header.contact.website) { %>
+            <a href="<%= page.header.contact.website.url %>" class="flex flex-nowrap items-center justify-between gap-1 text-blue-600 dark:text-blue-400 print:text-gray-950 underline">
+              <i data-lucide="git-fork" class="w-4 h-4"></i>
+              <%= page.header.contact.website.label %>
+            </a>
+            <% } %>
+          </div>
+        <% } %>
+
+        <% if (page.header.tags && page.header.tags.length > 0) { %>
+            <div class="flex flex-wrap justify-center gap-x-1 gap-y-1 w-full my-2 break-inside-avoid">
+              <% page.header.tags.forEach(function(tag) { %>
+                <div class="rounded-full bg-accent text-accent-foreground print:bg-white print:text-gray-600 print:border-gray-600 max-w-fit px-2 whitespace-nowrap border border-accent-foreground/20"><%= tag %></div>
+                <% }) %>
+            </div>
+        <% } %>
+
+        <% if (page.header.summary && page.header.summary.length > 0) { %>
+        <section class="mb-2 break-inside-avoid">
+          <h2 class="mb-4 mt-4 border-b border-foreground/60 pb-1 not-prose text-2xl font-bold">Summary</h2>
+          <p><%= page.header.summary %></p>
+        </section>
+        <% } %>
       </header>
-      <% cover.forEach(function(paragraph) { %>
-        <p class="break-inside-avoid"><%= paragraph %></p>
-      <% }) %>
-    </article>
-
-
-    <article class="prose prose-sm sm:prose-base max-w-none dark:prose-invert prose-neutral">
+    <% } %>
+    
       
-      <header class="pb-2 mb-1 break-inside-avoid">
-
-        <h1 class="mb-0 pb-0 text-4xl font-bold tracking-tight not-prose"><%= basics.name %></h1>
-        <div class="text-2xl mb-4 text-foreground/90 font-medium prose"><%= basics.title %></div>
-        <div class="border-b border-t border-foreground/20 flex flex-wrap gap-4 text-sm bg-accent print:bg-white text-accent-foreground/80 mt-2 p-2 not-prose items-center justify-between">
-          <span class="flex flex-nowrap items-center justify-between gap-1">
-            <i data-lucide="mail" class="w-4 h-4"></i>
-            <%= basics.email %>
-          </span>
-          
-          <span class="flex flex-nowrap items-center justify-between gap-1">
-            <i data-lucide="phone" class="w-4 h-4"></i>
-            <%= basics.phone %>
-          </span>
-          
-          <span class="flex flex-nowrap items-center justify-between gap-1">
-            <i data-lucide="map-pin" class="w-4 h-4"></i>
-            <%= basics.location %>
-          </span>
-          
-          <a href="<%= basics.website.url %>" class="flex flex-nowrap items-center justify-between gap-1 text-blue-600 dark:text-blue-400 print:text-gray-950 underline">
-            <i data-lucide="globe" class="w-4 h-4"></i>
-            <%= basics.website.label %>
-          </a>
-        </div>
-
-      </header>
 
 
-            <section class="mb-2 break-inside-avoid">
-        <div class="flex flex-wrap justify-center gap-x-1 gap-y-1 w-full">
-          <% tags.forEach(function(tag) { %>
-            <div class="rounded-full bg-accent text-accent-foreground print:bg-white print:text-gray-600 print:border-gray-600 max-w-fit px-2 whitespace-nowrap border border-accent-foreground/20"><%= tag %></div>
-            <% }) %>
-        </div>
-      </section>
-
-      <section class="mb-2 break-inside-avoid">
-        <h2 class="mb-4 mt-4 border-b border-foreground/60 pb-1 not-prose text-2xl font-bold">Summary</h2>
-        <p><%= basics.summary %></p>
-      </section>
-
-      <% sections.forEach(function(section,index) { %>
-        <% if (section.breakBefore) { %>
+      <% page.articles.forEach(function(article,index) { %>
+        <% if (article.breakBefore) { %>
           <div class="break-before-page mb-4 mt-4"></div>
         <% } %>
-        <section class="mb-2 mt-4">
-          <h2 class="mb-4 mt-4 border-b border-foreground/60 pb-1 not-prose text-2xl font-bold"><%= section.title %></h2>
+        <article class="mb-2 mt-4 prose prose-sm sm:prose-base max-w-none dark:prose-invert prose-neutral">
+
+          <h2 class="mb-4 mt-4 border-b border-foreground/60 pb-1 not-prose text-2xl font-bold"><%= article.title %></h2>
           
-          <% section.content.forEach(function(item) { %>
-
-            <div class="mb-6 break-inside-avoid">
-              <div class="flex justify-between items-baseline not-prose flex-nowrap whitespace-nowrap">
-                <h3 class="text-lg font-semibold text-foreground">
-                  <span><%= item.name %></span>
-                  <% if (item.title && item.title.length > 0) { %>
-                  <span class="whitespace-nowrap"> — <%= item.title %></span>
-                   <% } %>
-                </h3>
-                <span class="not-prose text-sm font-medium text-foreground/80 whitespace-nowrap"><%= item.date %></span>
-              </div>
-              <div class="flex justify-start items-baseline mb-2 not-prose">
-                <div class="whitespace-nowrap text-lg text-foreground/80 font-"><em><%= item.subTitle %></em></div>
-              </div>
-              
-              <% if (item.points && item.points.length > 0) { %>
-              <ul class="">
-                <% item.points.forEach(function(point) { %>
-                  <li><%= point %></li>
-                <% }) %>
-              </ul>
-              <% } %>
-            </div>
-
-            <% if (item.content && item.content.length > 0) { %>
-                <% item.content.forEach(function(subItem) { %>
-                  <div class="mb-1 mt-2 break-inside-avoid">
-                    <div class="flex justify-between items-baseline mb-0.5 not-prose">
-                      <h4 class="text-lg font-semibold text-foreground/90 whitespace-nowrap"><%= subItem.title %></h4>
-                      <a href="<%= subItem.website.url %>" class="flex flex-nowrap items-center justify-between gap-1 text-blue-600 dark:text-blue-400 print:text-gray-950 underline">
-                        <i data-lucide="git-fork" class="w-4 h-4"></i>
-                        <%= subItem.website.label %>
-                      </a>
-                    </div>
-                    <p class=""><%= subItem.content %></p>
+          <% article.sections.forEach(function(section) { %>
+            <section>
+              <div class="mb-6 break-inside-avoid">
+                <div class="flex justify-between items-baseline not-prose flex-nowrap whitespace-nowrap">
+                  <h3 class="text-lg font-semibold text-foreground">
+                    <span class="whitespace-nowrap"><%= section.title %></span>
+                  </h3>
+                  <% if (section.website) { %>
+                    <a href="<%= section.website.url %>" class="ml-auto flex flex-nowrap items-center justify-between gap-1 text-blue-600 dark:text-blue-400 print:text-gray-950 underline">
+                      <i data-lucide="git-fork" class="w-4 h-4"></i>
+                      <%= section.website.label %>
+                    </a>
+                  <% } else if(section.date) { %>
+                    <span class="not-prose text-sm font-medium text-foreground/80 whitespace-nowrap"><%= section.date %></span>
+                  <% } %>
+                </div>
+                
+                <% if (section.subTitle) { %>
+                  <div class="flex justify-start items-baseline mb-2 not-prose">
+                    <div class="whitespace-nowrap text-lg text-foreground/80 font-"><em><%= section.subTitle %></em></div>
                   </div>
-                <% }) %>
-            <% } %>
-
-
+                <% } %>
+                
+                <% if (section.points && section.points.length > 0) { %>
+                  <ul class="">
+                    <% section.points.forEach(function(point) { %>
+                      <li><%= point %></li>
+                    <% }) %>
+                  </ul>
+                <% } %>
+              </div>
+              <% if (section.content && section.content.length > 0) { %>
+                  <% section.content.forEach(function(paragraph) { %>
+                    <p class=""><%= paragraph %></p>
+                  <% }) %>
+              <% } %>
+            </section>
           <% }) %>
           
-        </section>
+        </article>
       <% }) %>
 
     </article>

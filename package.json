@@ -1,25 +1,27 @@
 {
-  "name": "resume-doc-static-html-tailwind",
+  "name": "static-html-resume",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:html": "node build.js",
+    "build": "node build.js all",
+    "build:cover": "node build.js cover",
+    "build:resume": "node build.js resume",
     "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css",
     "dev:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/that-andrew/resume-doc-static-html-tailwind.git"
+    "url": "git+https://github.com/that-andrew/static-html-resume.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/that-andrew/resume-doc-static-html-tailwind/issues"
+    "url": "https://github.com/that-andrew/static-html-resume/issues"
   },
-  "homepage": "https://github.com/that-andrew/resume-doc-static-html-tailwind#readme",
+  "homepage": "https://github.com/that-andrew/static-html-resume#readme",
   "dependencies": {
     "@tailwindcss/cli": "^4.3.0",
     "@tailwindcss/typography": "^0.5.20",
