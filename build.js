@@ -57,12 +57,12 @@ console.log(`Rendering documents...`);
 
 if (buildCover) {
   console.log(` - rendering cover letter...`);
-  render("cover.html", "template.ejs", coverData);
+  render("dist/cover.html", "src/template.ejs", coverData);
 }
 
 if (buildResume) {
   console.log(` - rendering resume...`);
-  render("resume.html", "template.ejs", resumeData);
+  render("dist/resume.html", "src/template.ejs", resumeData);
 }
 
 console.log(`finished rendering.`);

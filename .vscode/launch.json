@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "command": "npm run build && npm run dev:css",
+      "command": "npm run dev",
       "name": "Run build & watch",
       "request": "launch",
       "type": "node-terminal"

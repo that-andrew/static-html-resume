@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss" source("../src");
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *,[data-theme=dark], [data-theme=dark] *));
@@ -22,6 +22,30 @@
   /* Force links to not display their URLs in print */
   a[href]:after {
     content: none !important;
+  }
+  a[href] {
+    @apply text-gray-950 underline;
+  }
+
+  .prose {
+    @apply dark:prose-neutral;
+  }
+  .icon {
+    @apply bg-gray-950;
+  }
+
+  main,
+  body {
+    @apply bg-white text-gray-950 dark:text-gray-950 dark:bg-white;
+  }
+  main {
+    @apply shadow-none p-2 m-2;
+  }
+  .tag-list > div {
+    @apply bg-white text-gray-600 border-gray-600;
+  }
+  .contact-bar {
+    @apply bg-white border-gray-600;
   }
 }
 
@@ -108,6 +132,9 @@
   button {
     @apply rounded-full text-primary-foreground/80 hover:text-primary-foreground bg-primary/80 hover:bg-primary relative inline-flex items-center gap-1 px-3 py-2 shadow-sm backdrop-blur transition;
   }
+}
+a[href] > span {
+  @apply flex flex-nowrap items-center justify-between gap-1 underline;
 }
 
 .github-icon {

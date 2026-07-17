@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= page.title %></title>
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link href="./dist/output.css" rel="stylesheet">
+  <link href="output.css" rel="stylesheet">
 </head>
-<body class="flex-col flex-nowrap print:bg-white print:text-gray-950 dark:print:bg-white dark:print:text-gray-950 bg-background text-foreground flex items-center justify-center relative">
+<body class="flex-col flex-nowrap bg-background text-foreground flex items-center justify-center relative">
   
 
   <div class="page-toolbar mx-auto w-full max-w-[210mm] flex items-center justify-between py-1 gap-3 print:hidden">
@@ -35,7 +35,6 @@
         type="button"
         class="group"
         aria-label="Toggle theme"
-
       >
       <span class="grid h-6 w-6 place-items-center" id="themeIcon">
           <span class="theme-auto:hidden">
@@ -51,16 +50,12 @@
           </span>
           <span class="not-theme-auto:hidden">Auto</span>
         </span>
-
-        
-
       </button>
     </div>
-    
   </div>
   
 
-  <main class="w-full max-w-[210mm] min-h-[297mm] p-5 shadow-lg print:bg-white print:text-gray-950 print:shadow-none print:p-2 print:m-2 box-border relative">
+  <main class="w-full max-w-[210mm] min-h-[297mm] p-5 shadow-lg box-border relative">
     <% if (page.header) { %>
       <header class="pb-2 mb-1 break-inside-avoid prose prose-sm sm:prose-base max-w-none dark:prose-invert prose-neutral">
         <% if (page.header.title) { %>
@@ -70,10 +65,10 @@
           <div class="text-2xl mb-4 text-foreground/90 font-medium prose"><%= page.header.subTitle %></div>
         <% } %>
         <% if (page.header.contact) { %>
-          <div class="border-b border-t border-foreground/20 flex flex-wrap gap-4 text-sm bg-accent print:bg-white text-accent-foreground mt-2 p-2 not-prose items-center justify-between">
+          <div class="contact-bar border-b border-t border-foreground/20 flex flex-wrap gap-4 text-sm bg-accent text-accent-foreground mt-2 p-2 not-prose items-center justify-between">
             <% if (page.header.contact.email) { %>
               <a href="<%= page.header.contact.email.url %>"  target="_blank">
-              <span class="flex flex-nowrap items-center justify-between gap-1">
+              <span class="">
                 <i data-lucide="mail" class="w-4 h-4"></i>
                 <%= page.header.contact.email.label %>
               </span>
@@ -81,7 +76,7 @@
             <% } %>
             <% if (page.header.contact.phone) { %>
               <a href="<%= page.header.contact.phone.url %>"  target="_blank">
-                <span class="flex flex-nowrap items-center justify-between gap-1">
+                <span class="">
                   <i data-lucide="phone" class="w-4 h-4"></i>
                   <%= page.header.contact.phone.label %>
                 </span>
@@ -89,7 +84,7 @@
             <% } %>
             <% if (page.header.contact.location) { %>
               <a href="<%= page.header.contact.location.url %>" target="_blank">
-                <span class="flex flex-nowrap items-center justify-between gap-1">
+                <span class="">
                   <i data-lucide="map-pin" class="w-4 h-4"></i>
                   <%= page.header.contact.location.label %>
                 </span>
@@ -98,8 +93,8 @@
             <% } %>
             <% if (page.header.contact.website) { %>
             <a href="<%= page.header.contact.website.url %>"  target="_blank">
-              <span class="flex flex-nowrap items-center justify-between gap-1 print:text-gray-950 underline">
-               <i  class="github-icon w-4 h-4 bg-accent-foreground"></i>
+              <span class="">
+               <i  class="github-icon accent-foreground w-4 h-4 "></i>
               <%= page.header.contact.website.label %>
               </span>
             </a>
@@ -108,74 +103,73 @@
         <% } %>
 
         <% if (page.header.tags && page.header.tags.length > 0) { %>
-            <div class="flex flex-wrap justify-center gap-x-1 gap-y-1 w-full my-2 break-inside-avoid">
+            <div class="tag-list flex flex-wrap justify-center gap-x-1 gap-y-1 w-full my-2 break-inside-avoid">
               <% page.header.tags.forEach(function(tag) { %>
-                <div class="rounded-full bg-accent text-accent-foreground print:bg-white print:text-gray-600 print:border-gray-600 max-w-fit px-2 whitespace-nowrap border border-accent-foreground/20"><%= tag %></div>
+                <div class="rounded-full bg-accent text-accent-foreground  max-w-fit px-2 whitespace-nowrap border border-accent-foreground/20"><%= tag %></div>
               <% }) %>
             </div>
         <% } %>
 
         <% if (page.header.summary && page.header.summary.length > 0) { %>
-        <section class="mb-2 break-inside-avoid">
-          <h2 class="mb-4 mt-4 border-b border-foreground/60 pb-1 not-prose text-2xl font-bold">Summary</h2>
-          <p><%= page.header.summary %></p>
-        </section>
+          <section class="mb-2 break-inside-avoid">
+            <h2 class="mb-4 mt-4 border-b border-foreground/60 pb-1 not-prose text-2xl font-bold">Summary</h2>
+            <p><%= page.header.summary %></p>
+          </section>
         <% } %>
       </header>
     <% } %>
     
-      
+    <% page.articles.forEach(function(article,index) { %>
+      <% if (article.breakBefore) { %>
+        <div class="break-before-page mb-4 mt-4"></div>
+      <% } %>
+      <article class="mb-2 mt-4 prose prose-sm sm:prose-base max-w-none dark:prose-invert prose-neutral">
 
-
-      <% page.articles.forEach(function(article,index) { %>
-        <% if (article.breakBefore) { %>
-          <div class="break-before-page mb-4 mt-4"></div>
-        <% } %>
-        <article class="mb-2 mt-4 prose prose-sm sm:prose-base max-w-none dark:prose-invert prose-neutral">
-
-          <h2 class="mb-4 mt-4 border-b border-foreground/60 pb-1 not-prose text-2xl font-bold"><%= article.title %></h2>
-          
-          <% article.sections.forEach(function(section) { %>
-            <section>
-              <div class="mb-6 break-inside-avoid">
-                <div class="flex justify-between items-baseline not-prose flex-nowrap whitespace-nowrap">
-                  <h3 class="text-lg font-semibold text-foreground">
-                    <span class="whitespace-nowrap"><%= section.title %></span>
-                  </h3>
-                  <% if (section.website) { %>
-                    <a href="<%= section.website.url %>" class="ml-auto flex flex-nowrap items-center justify-between gap-1  print:text-gray-950 underline">
-                      <i  class="github-icon w-4 h-4 bg-accent-foreground"></i>
-                      <%= section.website.label %>
-                    </a>
-                  <% } else if(section.date) { %>
-                    <span class="not-prose text-sm font-medium text-foreground/80 whitespace-nowrap"><%= section.date %></span>
-                  <% } %>
-                </div>
-                
-                <% if (section.subTitle) { %>
-                  <div class="flex justify-start items-baseline mb-2 not-prose">
-                    <div class="whitespace-nowrap text-lg text-foreground/80 font-"><em><%= section.subTitle %></em></div>
-                  </div>
-                <% } %>
-                
-                <% if (section.points && section.points.length > 0) { %>
-                  <ul class="">
-                    <% section.points.forEach(function(point) { %>
-                      <li><%= point %></li>
-                    <% }) %>
-                  </ul>
+        <h2 class="mb-4 mt-4 border-b border-foreground/60 pb-1 not-prose text-2xl font-bold"><%= article.title %></h2>
+        
+        <% article.sections.forEach(function(section) { %>
+          <section>
+            <div class="mb-6 break-inside-avoid">
+              <div class="flex justify-between items-baseline not-prose flex-nowrap whitespace-nowrap">
+                <h3 class="text-lg font-semibold text-foreground">
+                  <span class="whitespace-nowrap"><%= section.title %></span>
+                </h3>
+                <% if (section.website) { %>
+                  <a href="<%= section.website.url %>"  target="_blank">
+                    <span class="">
+                    <i  class="icon github-icon bg-accent-foreground w-4 h-4"></i>
+                    <%= section.website.label %>
+                    </span>
+                  </a>
+                <% } else if(section.date) { %>
+                  <span class="not-prose text-sm font-medium text-foreground/80 whitespace-nowrap"><%= section.date %></span>
                 <% } %>
               </div>
-              <% if (section.content && section.content.length > 0) { %>
-                  <% section.content.forEach(function(paragraph) { %>
-                    <p class=""><%= paragraph %></p>
-                  <% }) %>
+              
+              <% if (section.subTitle) { %>
+                <div class="flex justify-start items-baseline mb-2 not-prose">
+                  <div class="whitespace-nowrap text-lg text-foreground/80 font-"><em><%= section.subTitle %></em></div>
+                </div>
               <% } %>
-            </section>
-          <% }) %>
-          
-        </article>
-      <% }) %>
+              
+              <% if (section.points && section.points.length > 0) { %>
+                <ul class="">
+                  <% section.points.forEach(function(point) { %>
+                    <li><%= point %></li>
+                  <% }) %>
+                </ul>
+              <% } %>
+            </div>
+            <% if (section.content && section.content.length > 0) { %>
+                <% section.content.forEach(function(paragraph) { %>
+                  <p class=""><%= paragraph %></p>
+                <% }) %>
+            <% } %>
+          </section>
+        <% }) %>
+        
+      </article>
+    <% }) %>
 
     </article>
   </main>
@@ -185,9 +179,8 @@
   <script>
   
   
-  const STORAGE_KEY = "theme"; // "light" | "dark"
+  const STORAGE_KEY = "theme";
   const root = document.documentElement;
-
   const toggleBtn = document.getElementById("themeToggle");
   const themeIcon = document.getElementById("themeIcon");
   const themeModeLabel = document.getElementById("themeModeLabel");

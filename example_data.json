@@ -3,7 +3,7 @@
     "meta": {
       "nav": [
         {
-          "url": "/resume.html",
+          "url": "resume.html",
           "label": "Resume",
           "icon": "file-user"
         }
@@ -38,7 +38,7 @@
     "meta": {
       "nav": [
         {
-          "url": "/cover.html",
+          "url": "cover.html",
           "label": "Cover Letter",
           "icon": "file-text"
         }
