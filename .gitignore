@@ -2,5 +2,5 @@ node_modules/
 dist/
 data.json
 index.html
-cover.html
-resume.html
+# cover.html
+# resume.html
