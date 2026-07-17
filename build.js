@@ -1,16 +1,7 @@
 const fs = require("fs");
 const ejs = require("ejs");
 
-const [target, ...otherArgs] = process.argv.slice(2);
-
-const buildResume = target === "all" || target === "resume";
-const buildCover = target === "all" || target === "cover";
-
-// Read data
-const rawData = fs.readFileSync("data.json", "utf8");
-const parsedData = JSON.parse(rawData);
-const resumeData = parsedData.resume;
-const coverData = parsedData.cover;
+const [target, dataPath, ...otherArgs] = process.argv.slice(2);
 
 /**
  *
@@ -53,6 +44,15 @@ function render(outputPath, templatePath, data) {
   }
 }
 
+const buildResume = target === "all" || target === "resume";
+const buildCover = target === "all" || target === "cover";
+
+// Read data
+const rawData = fs.readFileSync(dataPath, "utf8");
+const parsedData = JSON.parse(rawData);
+const resumeData = parsedData.resume;
+const coverData = parsedData.cover;
+
 console.log(`Rendering documents...`);
 
 if (buildCover) {
@@ -66,15 +66,3 @@ if (buildResume) {
 }
 
 console.log(`finished rendering.`);
-
-// // render data
-// ejs.renderFile("template-resume.ejs", resumeData, (err, html) => {
-//   if (err) {
-//     console.error("Error redering template-resume.ejs:", err);
-//     return;
-//   }
-
-//   // HTML file output
-//   fs.writeFileSync("resume.html", html);
-//   console.log("✅ Resume successfully built resume to resume.html!");
-// });

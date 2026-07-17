@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node build.js all",
-    "build:cover": "node build.js cover",
-    "build:resume": "node build.js resume",
+    "build": "node build.js all data.json",
+    "build:demo": "node build.js all example_data.json",
+    "build:cover": "node build.js cover data.json",
+    "build:resume": "node build.js resume data.json",
     "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css",
     "dev:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
   },

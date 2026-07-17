@@ -7,37 +7,60 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <link href="./dist/output.css" rel="stylesheet">
 </head>
-<body class=" print:bg-white print:text-gray-950 bg-background text-foreground flex justify-center py-5 print:py-0">
-  <main class="w-full max-w-[210mm] min-h-[297mm] p-5 shadow-lg print:shadow-none print:p-2 print:m-2 box-border relative">
-    
+<body class="flex-col flex-nowrap print:bg-white print:text-gray-950 dark:print:bg-white dark:print:text-gray-950 bg-background text-foreground flex items-center justify-center relative">
+  
 
-    <div class="absolute top-0 right-0 flex items-center justify-end gap-3 print:hidden ">
+  <div class="page-toolbar mx-auto w-full max-w-[210mm] flex items-center justify-between py-1 gap-3 print:hidden">
+    <% if (meta && meta.nav) { %>
+      <% meta.nav.forEach(function(item) { %>
+        <div class="flex flex-nowrap items-center justify-start">
+          <a href="<%= item.url %>" class="">
+            <button type="button" aria-label="<%= item.label %>" title="<%= item.label %>" > 
+              <% if (item.icon) { %>
+                <i data-lucide="<%= item.icon %>" class="w-6 h-6"></i>
+              <% } %>
+              <span class="text-xs font-semibold"><%= item.label %></span>
+            </button>
+          </a>
+        </div>
+      <% }) %>
+    <% } %>
+
+    <div class="flex flex-nowrap items-center justify-end gap-6 grow">
+      <button type="button" value="Print" onclick="window.print()" aria-label="Print Page" title="Print Page" >
+        <i data-lucide="printer" class="w-6 h-6"></i><span class="text-xs font-semibold">Print</span>
+      </button>
       <button
         id="themeToggle"
         type="button"
-        class="group relative inline-flex items-center gap-3 px-3 py-2 shadow-sm backdrop-blur transition "
+        class="group"
         aria-label="Toggle theme"
 
       >
-        <span class="text-xs font-semibold" id="themeModeLabel">
-          <span class="theme-auto:hidden">
-            <span class="not-dark:hidden"></span>
-            <span class="dark:hidden"></span>
-          </span>
-          <span class="not-theme-auto:hidden">Auto</span>
-        </span>
-
-        <span class="grid h-6 w-6 place-items-center" id="themeIcon">
+      <span class="grid h-6 w-6 place-items-center" id="themeIcon">
           <span class="theme-auto:hidden">
             <span class="not-dark:hidden"><i data-lucide="sun" class="w-6 h-6"></i></span>
             <span class="dark:hidden"><i data-lucide="moon" class="w-6 h-6"></i></span>
           </span>
           <span class="not-theme-auto:hidden"><i data-lucide="sun-moon" class="w-6 h-6"></i></span>
         </span>
+        <span class="text-xs font-semibold" id="themeModeLabel">
+          <span class="theme-auto:hidden">
+            <span class="not-dark:hidden">Light</span>
+            <span class="dark:hidden">Dark</span>
+          </span>
+          <span class="not-theme-auto:hidden">Auto</span>
+        </span>
+
+        
 
       </button>
     </div>
+    
+  </div>
+  
 
+  <main class="w-full max-w-[210mm] min-h-[297mm] p-5 shadow-lg print:bg-white print:text-gray-950 print:shadow-none print:p-2 print:m-2 box-border relative">
     <% if (page.header) { %>
       <header class="pb-2 mb-1 break-inside-avoid prose prose-sm sm:prose-base max-w-none dark:prose-invert prose-neutral">
         <% if (page.header.title) { %>
@@ -47,29 +70,38 @@
           <div class="text-2xl mb-4 text-foreground/90 font-medium prose"><%= page.header.subTitle %></div>
         <% } %>
         <% if (page.header.contact) { %>
-          <div class="border-b border-t border-foreground/20 flex flex-wrap gap-4 text-sm bg-accent print:bg-white text-accent-foreground/80 mt-2 p-2 not-prose items-center justify-between">
+          <div class="border-b border-t border-foreground/20 flex flex-wrap gap-4 text-sm bg-accent print:bg-white text-accent-foreground mt-2 p-2 not-prose items-center justify-between">
             <% if (page.header.contact.email) { %>
+              <a href="<%= page.header.contact.email.url %>"  target="_blank">
               <span class="flex flex-nowrap items-center justify-between gap-1">
                 <i data-lucide="mail" class="w-4 h-4"></i>
-                <%= page.header.contact.email %>
+                <%= page.header.contact.email.label %>
               </span>
+              </a>
             <% } %>
             <% if (page.header.contact.phone) { %>
-            <span class="flex flex-nowrap items-center justify-between gap-1">
-              <i data-lucide="phone" class="w-4 h-4"></i>
-              <%= page.header.contact.phone %>
-            </span>
+              <a href="<%= page.header.contact.phone.url %>"  target="_blank">
+                <span class="flex flex-nowrap items-center justify-between gap-1">
+                  <i data-lucide="phone" class="w-4 h-4"></i>
+                  <%= page.header.contact.phone.label %>
+                </span>
+              </a>
             <% } %>
             <% if (page.header.contact.location) { %>
-            <span class="flex flex-nowrap items-center justify-between gap-1">
-              <i data-lucide="map-pin" class="w-4 h-4"></i>
-              <%= page.header.contact.location %>
-            </span>
+              <a href="<%= page.header.contact.location.url %>" target="_blank">
+                <span class="flex flex-nowrap items-center justify-between gap-1">
+                  <i data-lucide="map-pin" class="w-4 h-4"></i>
+                  <%= page.header.contact.location.label %>
+                </span>
+              </a>
+
             <% } %>
             <% if (page.header.contact.website) { %>
-            <a href="<%= page.header.contact.website.url %>" class="flex flex-nowrap items-center justify-between gap-1 text-blue-600 dark:text-blue-400 print:text-gray-950 underline">
-              <i data-lucide="git-fork" class="w-4 h-4"></i>
+            <a href="<%= page.header.contact.website.url %>"  target="_blank">
+              <span class="flex flex-nowrap items-center justify-between gap-1 print:text-gray-950 underline">
+               <i  class="github-icon w-4 h-4 bg-accent-foreground"></i>
               <%= page.header.contact.website.label %>
+              </span>
             </a>
             <% } %>
           </div>
@@ -79,7 +111,7 @@
             <div class="flex flex-wrap justify-center gap-x-1 gap-y-1 w-full my-2 break-inside-avoid">
               <% page.header.tags.forEach(function(tag) { %>
                 <div class="rounded-full bg-accent text-accent-foreground print:bg-white print:text-gray-600 print:border-gray-600 max-w-fit px-2 whitespace-nowrap border border-accent-foreground/20"><%= tag %></div>
-                <% }) %>
+              <% }) %>
             </div>
         <% } %>
 
@@ -111,8 +143,8 @@
                     <span class="whitespace-nowrap"><%= section.title %></span>
                   </h3>
                   <% if (section.website) { %>
-                    <a href="<%= section.website.url %>" class="ml-auto flex flex-nowrap items-center justify-between gap-1 text-blue-600 dark:text-blue-400 print:text-gray-950 underline">
-                      <i data-lucide="git-fork" class="w-4 h-4"></i>
+                    <a href="<%= section.website.url %>" class="ml-auto flex flex-nowrap items-center justify-between gap-1  print:text-gray-950 underline">
+                      <i  class="github-icon w-4 h-4 bg-accent-foreground"></i>
                       <%= section.website.label %>
                     </a>
                   <% } else if(section.date) { %>
