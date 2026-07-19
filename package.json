@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node build.js all data.json && npm run build:css",
-    "build:demo": "node build.js all example_data.json && npm run build:css",
+    "build": "node build.js data.json && npm run build:css",
+    "build:demo": "node build.js example_data.json && npm run build:css",
     "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css",
-    "dev": "node build.js all data.json && npm run dev:css",
+    "dev": "node build.js data.json && npm run dev:css",
     "dev:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
   },
   "repository": {

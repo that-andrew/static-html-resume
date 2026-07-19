@@ -5,12 +5,38 @@
 
 @custom-variant theme-auto (&:where([data-theme-source=system], [data-theme-source=system] *));
 
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
 /* Print-specific CSS rules */
 @media print {
-  @page {
-    /* Set standard print margins (A4/Letter) */
-    margin: 1.5cm;
-    size: auto;
+  .page-container {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 4mm;
+    page-break-after: always;
+    box-shadow: none;
+  }
+  .page-container + .page-container {
+    margin-top: 0px;
+  }
+
+  /* Don't force break after last page */
+  .page-container:last-child {
+    page-break-after: auto;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    break-after: avoid;
+    page-break-after: avoid;
+    @apply text-gray-950 border-gray-950/60;
   }
 
   /* Ensure background colors print */
@@ -18,7 +44,6 @@
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
-
   /* Force links to not display their URLs in print */
   a[href]:after {
     content: none !important;
@@ -27,25 +52,29 @@
     @apply text-gray-950 underline;
   }
 
-  .prose {
-    @apply dark:prose-neutral;
-  }
   .icon {
     @apply bg-gray-950;
   }
+  .sub-heading {
+    @apply text-gray-950;
+  }
 
-  main,
-  body {
-    @apply bg-white text-gray-950 dark:text-gray-950 dark:bg-white;
+  .contact-bar {
+    @apply border-gray-950/20;
   }
   main {
-    @apply shadow-none p-2 m-2;
+    @apply shadow-none bg-white;
   }
-  .tag-list > div {
-    @apply bg-white text-gray-600 border-gray-600;
+  body {
+    @apply bg-white;
   }
-  .contact-bar {
-    @apply bg-white border-gray-600;
+
+  header {
+    @apply text-gray-950;
+  }
+
+  .page-container {
+    @apply shadow-none text-gray-950 bg-white;
   }
 }
 
@@ -120,12 +149,59 @@
 }
 
 @theme inline {
-  --color-foreground: var(--foreground);
   --color-background: var(--background);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-page-shadow: var(--ring);
+
+  --page-shadow: 0 0px 4px var(--color-page-shadow);
+}
+
+@media screen {
+  .page-container {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto 20px;
+    padding: 10mm;
+    box-shadow: var(--page-shadow);
+  }
+
+  /* Space between multiple pages */
+  .page-container + .page-container {
+    margin-top: 20px;
+  }
+
+  header {
+    @apply text-foreground;
+  }
 }
 
 .page-toolbar {

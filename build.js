@@ -1,8 +1,6 @@
 const fs = require("fs");
 const ejs = require("ejs");
 
-const [target, dataPath, ...otherArgs] = process.argv.slice(2);
-
 /**
  *
  * @param {fs.PathOrFileDescriptor} outputPath
@@ -44,25 +42,41 @@ function render(outputPath, templatePath, data) {
   }
 }
 
-const buildResume = target === "all" || target === "resume";
-const buildCover = target === "all" || target === "cover";
+function fileNameFormat(values = []) {
+  const fileName = values.reduce((result, [value, defaultValue = ""]) => {
+    return result.concat(String(value ?? defaultValue));
+  }, "");
+  return fileName
+    .split(/\s|_|(?=[A-Z])/)
+    .join("-")
+    .toLowerCase();
+}
+
+const [dataPath, ...otherArgs] = process.argv.slice(2);
 
 // Read data
 const rawData = fs.readFileSync(dataPath, "utf8");
 const parsedData = JSON.parse(rawData);
-const resumeData = parsedData.resume;
-const coverData = parsedData.cover;
 
-console.log(`Rendering documents...`);
+const document = parsedData.document;
+const docMeta = document.meta;
 
-if (buildCover) {
-  console.log(` - rendering cover letter...`);
-  render("dist/cover.html", "src/template.ejs", coverData);
-}
+const docFileName = fileNameFormat([
+  [document.title, "Resume"],
+  [docMeta.applicantName, "FirstName-LastName"],
+  [docMeta.target],
+]);
+document.title = docFileName;
 
-if (buildResume) {
-  console.log(` - rendering resume...`);
-  render("dist/resume.html", "src/template.ejs", resumeData);
-}
+const docPageCount = String(document.pages?.length ?? 0);
+const outputPath = `dist/index.html`;
 
-console.log(`finished rendering.`);
+console.log(`Rendering Document:
+  Pages:      ${docPageCount}
+  Output:     ${outputPath}
+  Title:      ${document.title}
+  Output:     http://127.0.0.1:3000/${outputPath}
+`);
+render(outputPath, "src/template.ejs", parsedData);
+
+console.log(`Finished Rendering.`);

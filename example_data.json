@@ -1,55 +1,35 @@
 {
-  "cover": {
+  "document": {
+    "title": "Resume",
     "meta": {
-      "nav": [
-        {
-          "url": "resume.html",
-          "label": "Resume",
-          "icon": "file-user"
-        }
-      ]
+      "applicantName": "FirstName LastName",
+      "jobTitle": "Role",
+      "target": "Company Name"
     },
-    "page": {
-      "title": "Cover Letter | Your Name",
-      "header": {
+    "pages": [
+      {
         "title": "Cover Letter",
-        "subTitle": "Your Name"
+        "articles": [
+          {
+            "title": "",
+            "sections": [
+              {
+                "title": "",
+                "content": [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed aliquet enim. Aenean volutpat erat libero, eget feugiat metus luctus sit amet. Fusce mattis mi eu ante gravida vulputate. Vivamus molestie, nisl a ullamcorper condimentum, metus velit tincidunt ligula, quis tristique justo purus a est. Etiam lectus sem, tempor eget porta quis, molestie sed ipsum. Phasellus ullamcorper nunc in nibh facilisis, quis molestie metus pellentesque. Praesent ultrices ornare elit, a consectetur dolor tincidunt eget. Integer a interdum augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum scelerisque sapien non ligula bibendum, eget fringilla urna tristique. Cras ligula tortor, suscipit vitae dapibus nec, tempus pellentesque eros. Sed pharetra, elit id vestibulum lobortis, purus nisi cursus nunc, vel interdum urna magna quis elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce venenatis diam ac ullamcorper mollis. Curabitur egestas venenatis dui a tristique. Morbi congue porta tincidunt.",
+                  "Proin eu lobortis metus. Fusce sagittis imperdiet nulla, eu rhoncus justo malesuada nec. Suspendisse at aliquam nunc. Curabitur bibendum lacus mi, in faucibus leo lacinia vel. Duis ac elementum massa. Quisque quis consectetur erat, quis congue diam. Proin ex nunc, finibus tincidunt lectus hendrerit, sagittis convallis velit. Aenean in mollis purus, ac bibendum lorem.",
+                  "Donec vestibulum viverra dictum. In dignissim condimentum lorem, vel ullamcorper dolor ultricies nec. Mauris pharetra augue ac quam accumsan lacinia. Mauris eu pharetra mi. Donec vitae justo at lectus egestas cursus. Cras finibus mattis varius. Aenean commodo faucibus venenatis. Morbi nunc ex, sodales sit amet lacinia vel, blandit id est. Nullam a mi risus. Nam faucibus nisi at arcu elementum consequat. Fusce tincidunt facilisis massa, nec posuere est consequat non. Proin eget orci in nunc elementum mollis.",
+                  "Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent molestie, dui id hendrerit rhoncus, ante tortor accumsan lorem, sit amet scelerisque augue lacus et lectus. Donec finibus at enim id dapibus. Donec vel leo eget nulla convallis auctor nec id enim. Duis ligula orci, efficitur dapibus imperdiet in, venenatis eget sem. Sed feugiat lorem vel suscipit egestas. Mauris euismod fringilla sem, vitae condimentum odio volutpat eget. Sed dictum vulputate tortor et tincidunt. Duis blandit, augue a gravida tempus, leo lorem molestie nisl, nec elementum turpis tellus at purus. Duis cursus sodales lorem, at aliquet orci. Donec id tincidunt dolor, quis aliquet purus. In hac habitasse platea dictumst. Fusce interdum tincidunt varius. Praesent ut blandit eros.",
+                  "Vestibulum in laoreet lacus, sed volutpat urna. Vestibulum sodales nunc vel tellus luctus aliquam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis venenatis fringilla ipsum eget aliquam. Ut sit amet ornare massa. Curabitur dictum nulla non sem tincidunt, sed feugiat purus posuere. Sed tincidunt efficitur dapibus. Curabitur tincidunt tellus ut justo tristique, in gravida est condimentum. Nam at posuere ante, at tempor turpis. Proin sed consequat arcu, eu cursus mauris. Donec quis accumsan erat, eu viverra lectus. Etiam tempor vulputate faucibus. Quisque in dui non metus ultricies feugiat. Mauris vitae condimentum mauris. Fusce mollis, quam ut ultrices maximus, diam risus venenatis velit, at pharetra diam nunc eget nulla. Donec sit amet elementum sem."
+                ]
+              }
+            ]
+          }
+        ]
       },
-      "articles": [
-        {
-          "title": "",
-          "sections": [
-            {
-              "title": "",
-              "content": [
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed aliquet enim. Aenean volutpat erat libero, eget feugiat metus luctus sit amet. Fusce mattis mi eu ante gravida vulputate. Vivamus molestie, nisl a ullamcorper condimentum, metus velit tincidunt ligula, quis tristique justo purus a est. Etiam lectus sem, tempor eget porta quis, molestie sed ipsum. Phasellus ullamcorper nunc in nibh facilisis, quis molestie metus pellentesque. Praesent ultrices ornare elit, a consectetur dolor tincidunt eget. Integer a interdum augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum scelerisque sapien non ligula bibendum, eget fringilla urna tristique. Cras ligula tortor, suscipit vitae dapibus nec, tempus pellentesque eros. Sed pharetra, elit id vestibulum lobortis, purus nisi cursus nunc, vel interdum urna magna quis elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce venenatis diam ac ullamcorper mollis. Curabitur egestas venenatis dui a tristique. Morbi congue porta tincidunt.",
-                "Proin eu lobortis metus. Fusce sagittis imperdiet nulla, eu rhoncus justo malesuada nec. Suspendisse at aliquam nunc. Curabitur bibendum lacus mi, in faucibus leo lacinia vel. Duis ac elementum massa. Quisque quis consectetur erat, quis congue diam. Proin ex nunc, finibus tincidunt lectus hendrerit, sagittis convallis velit. Aenean in mollis purus, ac bibendum lorem.",
-                "Donec vestibulum viverra dictum. In dignissim condimentum lorem, vel ullamcorper dolor ultricies nec. Mauris pharetra augue ac quam accumsan lacinia. Mauris eu pharetra mi. Donec vitae justo at lectus egestas cursus. Cras finibus mattis varius. Aenean commodo faucibus venenatis. Morbi nunc ex, sodales sit amet lacinia vel, blandit id est. Nullam a mi risus. Nam faucibus nisi at arcu elementum consequat. Fusce tincidunt facilisis massa, nec posuere est consequat non. Proin eget orci in nunc elementum mollis.",
-                "Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent molestie, dui id hendrerit rhoncus, ante tortor accumsan lorem, sit amet scelerisque augue lacus et lectus. Donec finibus at enim id dapibus. Donec vel leo eget nulla convallis auctor nec id enim. Duis ligula orci, efficitur dapibus imperdiet in, venenatis eget sem. Sed feugiat lorem vel suscipit egestas. Mauris euismod fringilla sem, vitae condimentum odio volutpat eget. Sed dictum vulputate tortor et tincidunt. Duis blandit, augue a gravida tempus, leo lorem molestie nisl, nec elementum turpis tellus at purus. Duis cursus sodales lorem, at aliquet orci. Donec id tincidunt dolor, quis aliquet purus. In hac habitasse platea dictumst. Fusce interdum tincidunt varius. Praesent ut blandit eros.",
-                "Vestibulum in laoreet lacus, sed volutpat urna. Vestibulum sodales nunc vel tellus luctus aliquam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis venenatis fringilla ipsum eget aliquam. Ut sit amet ornare massa. Curabitur dictum nulla non sem tincidunt, sed feugiat purus posuere. Sed tincidunt efficitur dapibus. Curabitur tincidunt tellus ut justo tristique, in gravida est condimentum. Nam at posuere ante, at tempor turpis. Proin sed consequat arcu, eu cursus mauris. Donec quis accumsan erat, eu viverra lectus. Etiam tempor vulputate faucibus. Quisque in dui non metus ultricies feugiat. Mauris vitae condimentum mauris. Fusce mollis, quam ut ultrices maximus, diam risus venenatis velit, at pharetra diam nunc eget nulla. Donec sit amet elementum sem."
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  },
-  "resume": {
-    "meta": {
-      "nav": [
-        {
-          "url": "cover.html",
-          "label": "Cover Letter",
-          "icon": "file-text"
-        }
-      ]
-    },
-    "page": {
-      "title": "Resume | Your Name",
-      "header": {
+      {
         "title": "Resume",
-        "subTitle": "Your Name - Software Developer",
-        "contact": {
+        "contactBar": {
           "email": {
             "url": "mailto:usename@domain.tld",
             "label": "usename@domain.tld"
@@ -67,8 +47,7 @@
             "label": "www.google.com"
           }
         },
-        "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean blandit porttitor porttitor. Cras lorem lacus, mattis eu magna sed, dictum venenatis tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus id faucibus elit. Sed non leo a justo condimentum lobortis ac et leo. Pellentesque eget dui eleifend, finibus elit non, dapibus enim. Integer mollis auctor risus, eu malesuada nunc pellentesque non. Proin eu libero velit. Donec a rutrum arcu, ac pellentesque nisl. Nullam euismod est sit amet sem pellentesque eleifend. Nulla consectetur accumsan elit, auctor congue nibh tempor sit amet. In at placerat lorem, sit amet vehicula risus.",
-        "tags": [
+        "skillList": [
           "Javascript",
           "Typescript",
           "Nextjs",
@@ -86,90 +65,105 @@
           "PayloadCMS",
           "ShadcnUI",
           "MongoDB"
+        ],
+        "articles": [
+          {
+            "title": "Summary",
+            "sections": [
+              {
+                "title": "",
+                "content": [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean blandit porttitor porttitor. Cras lorem lacus, mattis eu magna sed, dictum venenatis tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus id faucibus elit. Sed non leo a justo condimentum lobortis ac et leo. Pellentesque eget dui eleifend, finibus elit non, dapibus enim. Integer mollis auctor risus, eu malesuada nunc pellentesque non. Proin eu libero velit. Donec a rutrum arcu, ac pellentesque nisl. Nullam euismod est sit amet sem pellentesque eleifend. Nulla consectetur accumsan elit, auctor congue nibh tempor sit amet. In at placerat lorem, sit amet vehicula risus."
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Experience",
+            "sections": [
+              {
+                "title": "Company 1 - Job Title",
+                "subTitle": "Role",
+                "date": "2026 – 2026",
+                "list": [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Sed mollis ligula eu tortor dictum, eu venenatis neque volutpat.",
+                  "Sed in tellus nec erat dignissim malesuada non sit amet turpis.",
+                  "Fusce vitae sem in nulla porta accumsan in eget elit.",
+                  "Aenean vel arcu eleifend, egestas libero bibendum, dictum nisl."
+                ]
+              },
+              {
+                "title": "Company 2 - Job Title",
+                "date": "2026 – 2026",
+                "list": [
+                  "Donec ac risus cursus magna mollis bibendum in id neque.",
+                  "Vestibulum aliquet risus sit amet quam mattis ullamcorper.",
+                  "Quisque ut sem pellentesque, feugiat mauris in, posuere arcu.",
+                  "Pellentesque tincidunt magna ut enim posuere mattis.",
+                  "Etiam at arcu porta nunc elementum ultricies at in eros."
+                ]
+              }
+            ]
+          }
         ]
       },
-      "articles": [
-        {
-          "title": "Experience",
-          "sections": [
-            {
-              "title": "Company 1 - Job Title",
-              "subTitle": "Role",
-              "date": "2019 – 2026",
-              "points": [
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                "Sed mollis ligula eu tortor dictum, eu venenatis neque volutpat.",
-                "Sed in tellus nec erat dignissim malesuada non sit amet turpis.",
-                "Fusce vitae sem in nulla porta accumsan in eget elit.",
-                "Aenean vel arcu eleifend, egestas libero bibendum, dictum nisl."
-              ]
-            },
-            {
-              "title": "Company 2 - Job Title",
-              "date": "2012 – 2015",
-              "points": [
-                "Donec ac risus cursus magna mollis bibendum in id neque.",
-                "Vestibulum aliquet risus sit amet quam mattis ullamcorper.",
-                "Quisque ut sem pellentesque, feugiat mauris in, posuere arcu.",
-                "Pellentesque tincidunt magna ut enim posuere mattis.",
-                "Etiam at arcu porta nunc elementum ultricies at in eros."
-              ]
-            }
-          ]
-        },
-        {
-          "breakBefore": true,
-          "title": "Education",
-          "sections": [
-            {
-              "title": "Example University - Bachelor of Science",
-              "subTitle": "Information Technology",
-
-              "date": "2026 – 2026",
-              "points": [],
-              "content": []
-            }
-          ]
-        },
-        {
-          "title": "Personal Projects",
-          "sections": [
-            {
-              "title": "Example Project 1",
-              "website": {
-                "url": "https://www.google.com",
-                "label": "www.google.com"
+      {
+        "title": "Resume",
+        "isContinued": true,
+        "articles": [
+          {
+            "title": "Education",
+            "sections": [
+              {
+                "title": "Example University - Bachelor of Science",
+                "subTitle": "Information Technology",
+                "date": "2026 – 2026",
+                "list": [],
+                "content": []
+              }
+            ]
+          },
+          {
+            "title": "Personal Projects",
+            "sections": [
+              {
+                "title": "Example Project 1",
+                "website": {
+                  "url": "https://www.google.com",
+                  "label": "www.google.com"
+                },
+                "content": [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean blandit porttitor porttitor. Cras lorem lacus, mattis eu magna sed, dictum venenatis tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus id faucibus elit. Sed non leo a justo condimentum lobortis ac et leo. Pellentesque eget dui eleifend, finibus elit non, dapibus enim. Integer mollis auctor risus, eu malesuada nunc pellentesque non. Proin eu libero velit. Donec a rutrum arcu, ac pellentesque nisl. Nullam euismod est sit amet sem pellentesque eleifend. Nulla consectetur accumsan elit, auctor congue nibh tempor sit amet. In at placerat lorem, sit amet vehicula risus.",
+                  "Phasellus a augue lacinia, lobortis orci sit amet, vulputate magna. Nam vestibulum fermentum gravida. Curabitur libero ex, dapibus sit amet risus eget, eleifend auctor erat. Sed posuere quis mauris quis fermentum. In ultrices porta turpis eget tincidunt. Donec vestibulum lacinia felis ut imperdiet. Pellentesque finibus elementum congue. Integer in massa ullamcorper, porttitor tellus quis, cursus massa. Aliquam nulla lacus, ultricies id feugiat a, eleifend eu magna."
+                ]
               },
-              "content": [
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean blandit porttitor porttitor. Cras lorem lacus, mattis eu magna sed, dictum venenatis tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus id faucibus elit. Sed non leo a justo condimentum lobortis ac et leo. Pellentesque eget dui eleifend, finibus elit non, dapibus enim. Integer mollis auctor risus, eu malesuada nunc pellentesque non. Proin eu libero velit. Donec a rutrum arcu, ac pellentesque nisl. Nullam euismod est sit amet sem pellentesque eleifend. Nulla consectetur accumsan elit, auctor congue nibh tempor sit amet. In at placerat lorem, sit amet vehicula risus.",
-                "Phasellus a augue lacinia, lobortis orci sit amet, vulputate magna. Nam vestibulum fermentum gravida. Curabitur libero ex, dapibus sit amet risus eget, eleifend auctor erat. Sed posuere quis mauris quis fermentum. In ultrices porta turpis eget tincidunt. Donec vestibulum lacinia felis ut imperdiet. Pellentesque finibus elementum congue. Integer in massa ullamcorper, porttitor tellus quis, cursus massa. Aliquam nulla lacus, ultricies id feugiat a, eleifend eu magna."
-              ]
-            },
-            {
-              "title": "Example Project 2",
-              "website": {
-                "url": "https://www.google.com",
-                "label": "www.google.com"
+              {
+                "title": "Example Project 2",
+                "website": {
+                  "url": "https://www.google.com",
+                  "label": "www.google.com"
+                },
+                "content": [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean blandit porttitor porttitor. Cras lorem lacus, mattis eu magna sed, dictum venenatis tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus id faucibus elit. Sed non leo a justo condimentum lobortis ac et leo. Pellentesque eget dui eleifend, finibus elit non, dapibus enim. Integer mollis auctor risus, eu malesuada nunc pellentesque non. Proin eu libero velit. Donec a rutrum arcu, ac pellentesque nisl. Nullam euismod est sit amet sem pellentesque eleifend. Nulla consectetur accumsan elit, auctor congue nibh tempor sit amet. In at placerat lorem, sit amet vehicula risus.",
+                  "Phasellus a augue lacinia, lobortis orci sit amet, vulputate magna. Nam vestibulum fermentum gravida. Curabitur libero ex, dapibus sit amet risus eget, eleifend auctor erat. Sed posuere quis mauris quis fermentum. In ultrices porta turpis eget tincidunt. Donec vestibulum lacinia felis ut imperdiet. Pellentesque finibus elementum congue. Integer in massa ullamcorper, porttitor tellus quis, cursus massa. Aliquam nulla lacus, ultricies id feugiat a, eleifend eu magna."
+                ]
               },
-              "content": [
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean blandit porttitor porttitor. Cras lorem lacus, mattis eu magna sed, dictum venenatis tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus id faucibus elit. Sed non leo a justo condimentum lobortis ac et leo. Pellentesque eget dui eleifend, finibus elit non, dapibus enim. Integer mollis auctor risus, eu malesuada nunc pellentesque non. Proin eu libero velit. Donec a rutrum arcu, ac pellentesque nisl. Nullam euismod est sit amet sem pellentesque eleifend. Nulla consectetur accumsan elit, auctor congue nibh tempor sit amet. In at placerat lorem, sit amet vehicula risus.",
-                "Phasellus a augue lacinia, lobortis orci sit amet, vulputate magna. Nam vestibulum fermentum gravida. Curabitur libero ex, dapibus sit amet risus eget, eleifend auctor erat. Sed posuere quis mauris quis fermentum. In ultrices porta turpis eget tincidunt. Donec vestibulum lacinia felis ut imperdiet. Pellentesque finibus elementum congue. Integer in massa ullamcorper, porttitor tellus quis, cursus massa. Aliquam nulla lacus, ultricies id feugiat a, eleifend eu magna."
-              ]
-            },
-            {
-              "title": "Example Project 3",
-              "website": {
-                "url": "https://www.google.com",
-                "label": "www.google.com"
-              },
-              "content": [
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean blandit porttitor porttitor. Cras lorem lacus, mattis eu magna sed, dictum venenatis tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus id faucibus elit. Sed non leo a justo condimentum lobortis ac et leo. Pellentesque eget dui eleifend, finibus elit non, dapibus enim. Integer mollis auctor risus, eu malesuada nunc pellentesque non. Proin eu libero velit. Donec a rutrum arcu, ac pellentesque nisl. Nullam euismod est sit amet sem pellentesque eleifend. Nulla consectetur accumsan elit, auctor congue nibh tempor sit amet. In at placerat lorem, sit amet vehicula risus.",
-                "Phasellus a augue lacinia, lobortis orci sit amet, vulputate magna. Nam vestibulum fermentum gravida. Curabitur libero ex, dapibus sit amet risus eget, eleifend auctor erat. Sed posuere quis mauris quis fermentum. In ultrices porta turpis eget tincidunt. Donec vestibulum lacinia felis ut imperdiet. Pellentesque finibus elementum congue. Integer in massa ullamcorper, porttitor tellus quis, cursus massa. Aliquam nulla lacus, ultricies id feugiat a, eleifend eu magna."
-              ]
-            }
-          ]
-        }
-      ]
-    }
+              {
+                "title": "Example Project 3",
+                "website": {
+                  "url": "https://www.google.com",
+                  "label": "www.google.com"
+                },
+                "content": [
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean blandit porttitor porttitor. Cras lorem lacus, mattis eu magna sed, dictum venenatis tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus id faucibus elit. Sed non leo a justo condimentum lobortis ac et leo. Pellentesque eget dui eleifend, finibus elit non, dapibus enim. Integer mollis auctor risus, eu malesuada nunc pellentesque non. Proin eu libero velit. Donec a rutrum arcu, ac pellentesque nisl. Nullam euismod est sit amet sem pellentesque eleifend. Nulla consectetur accumsan elit, auctor congue nibh tempor sit amet. In at placerat lorem, sit amet vehicula risus.",
+                  "Phasellus a augue lacinia, lobortis orci sit amet, vulputate magna. Nam vestibulum fermentum gravida. Curabitur libero ex, dapibus sit amet risus eget, eleifend auctor erat. Sed posuere quis mauris quis fermentum. In ultrices porta turpis eget tincidunt. Donec vestibulum lacinia felis ut imperdiet. Pellentesque finibus elementum congue. Integer in massa ullamcorper, porttitor tellus quis, cursus massa. Aliquam nulla lacus, ultricies id feugiat a, eleifend eu magna."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 }
