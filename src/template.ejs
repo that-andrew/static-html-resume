@@ -47,15 +47,15 @@
                     <h2 class="mb-0 pb-0 text-2xl font-bold tracking-tight not-prose">
                       <%= page.title %> (Continued)
                     </h2>
-                    <% } else { %>
-                      <h1 class="mb-0 pb-0 text-4xl font-bold tracking-tight not-prose">
-                        <%= page.title %>
-                      </h1>
-                      <% } %>
-                        <% } %>
-                          <div class="sub-heading text-2xl mb-4 font-medium not-prose">
-                            <%= document.meta.applicantName %> - <%= document.meta.jobTitle %>
-                          </div>
+                  <% } else { %>
+                    <h1 class="mb-0 pb-0 text-4xl font-bold tracking-tight not-prose">
+                      <%= page.title %>
+                    </h1>
+                  <% } %>
+                <% } %>
+                <div class="sub-heading text-2xl mb-4 font-medium not-prose">
+                  <%= document.meta.applicantName %>
+                </div>
               </header>
 
               <% if (page.contactBar) { %>
@@ -100,7 +100,7 @@
                       class="skill-list flex flex-wrap justify-center gap-x-1 gap-y-1 w-full my-2 break-inside-avoid">
                       <% page.skillList.forEach(function(tag) { %>
                         <div
-                          class="rounded-full bg-accent text-accent-foreground  max-w-fit px-2 whitespace-nowrap border border-accent-foreground/20">
+                          class="rounded-full text-sm bg-accent text-accent-foreground max-w-fit px-2 whitespace-nowrap border border-accent-foreground/20">
                           <%= tag %>
                         </div>
                         <% }) %>
@@ -115,7 +115,7 @@
                           </h2>
                           <% article.sections.forEach(function(section) { %>
                             <section>
-                              <div class="mb-6 break-inside-avoid">
+                              <div class="mb-0 break-inside-avoid">
                                 <div
                                   class="flex justify-between items-baseline not-prose flex-nowrap whitespace-nowrap">
                                   <h3 class="text-lg font-semibold text-foreground">
@@ -123,43 +123,61 @@
                                       <%= section.title %>
                                     </span>
                                   </h3>
+                                  <% if(section.date) { %>
+                                    <span class="not-prose text-sm font-medium text-foreground/80 whitespace-nowrap">
+                                      <%= section.date %>
+                                    </span>
+                                  <% } %>
                                   <% if (section.website) { %>
-                                    <a href="<%= section.website.url %>" target="_blank">
-                                      <span class="">
-                                        <i class="icon github-icon bg-accent-foreground w-4 h-4"></i>
-                                        <%= section.website.label %>
-                                      </span>
-                                    </a>
-                                    <% } else if(section.date) { %>
-                                      <span class="not-prose text-sm font-medium text-foreground/80 whitespace-nowrap">
-                                        <%= section.date %>
-                                      </span>
-                                      <% } %>
+                                    <div class="not-prose max-w-1/2 whitespace-nowrap">
+                                        <a href="<%= section.website.url %>" target="_blank">
+                                          <span class="">
+                                            <i class="icon github-icon bg-accent-foreground w-4 h-4"></i>
+                                            <%= section.website.label %>
+                                          </span>
+                                        </a>
+                                    </div>
+                                  <% } %>
                                 </div>
+
                                 <% if (section.subTitle) { %>
                                   <div class="flex justify-start items-baseline mb-2 not-prose">
                                     <div class="whitespace-nowrap text-lg text-foreground/80 font-"><em>
                                         <%= section.subTitle %>
                                       </em></div>
                                   </div>
-                                  <% } %>
-                                    <% if (section.list && section.list.length> 0) { %>
-                                      <ul class="">
-                                        <% section.list.forEach(function(point) { %>
-                                          <li>
-                                            <%= point %>
-                                          </li>
-                                          <% }) %>
-                                      </ul>
-                                      <% } %>
+                                <% } %>
+
+                                <% if (section.skillList && section.skillList.length> 0) { %>
+                                  <div
+                                    class="skill-list flex flex-wrap not-prose justify-center gap-x-0.5 gap-y-1 my-0 break-inside-avoid">
+                                    <% section.skillList.forEach(function(tag) { %>
+                                      <div
+                                        class="rounded-xl text-sm bg-accent text-accent-foreground max-w-fit px-1.5 whitespace-nowrap border border-accent-foreground/20">
+                                        <%= tag %>
+                                      </div>
+                                      <% }) %>
+                                  </div>
+                                <% } %>                                
+
+                                <% if (section.list && section.list.length> 0) { %>
+                                  <ul class="section-list leading-6">
+                                    <% section.list.forEach(function(point) { %>
+                                      <li>
+                                        <%= point %>
+                                      </li>
+                                      <% }) %>
+                                  </ul>
+                                <% } %>
                               </div>
+                              
                               <% if (section.content && section.content.length> 0) { %>
                                 <% section.content.forEach(function(paragraph) { %>
-                                  <p class="">
+                                  <p class="section-content first-of-type:mt-2">
                                     <%= paragraph %>
                                   </p>
                                   <% }) %>
-                                    <% } %>
+                              <% } %>
                             </section>
                             <% }) %>
                         </article>

@@ -21,7 +21,7 @@ This project uses **Tailwind CSS v4** (with the Typography plugin) for styling a
 
 ```bash
    git clone <your-repo-url>
-   cd statis-html-resume
+   cd static-html-resume
 ```
 
 ### 2. Install Dependencies:
